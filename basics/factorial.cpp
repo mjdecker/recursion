@@ -38,27 +38,36 @@ unsigned long long factorial(int num) {
 
 }
 
+unsigned long long bad_factorial_1(int num) {
+    // missing base case
 
-unsigned long long bad_factorial(int num) {
+    // recursive case
+    return num * bad_factorial_1(num);
+
+}
+
+unsigned long long bad_factorial_2(int num) {
     // base case
     if(num <= 1) return 1;
 
     // infinitely recursive
-    return num * factorial(num);
+    return num * bad_factorial_2(num);
 
 }
 
 
 int main(int argc, char * argv[]) {
 
-    std::cout << "factorial(0):       " << factorial(0)  << '\n';
-    std::cout << "factorial(1):       " << factorial(1)  << '\n';
-    std::cout << "factorial(5):       " << factorial(5)  << '\n';
-    std::cout << "factorial(20):      " << factorial(20) << '\n';
+    std::cerr << "factorial(0):        " << factorial(0)  << '\n';
+    std::cerr << "factorial(1):        " << factorial(1)  << '\n';
+    std::cerr << "factorial(5):        " << factorial(5)  << '\n';
+    std::cerr << "factorial(20):       " << factorial(20) << '\n';
 
 
-    // Uncomment this to see what happens with infinite recusion
-    std::cout << "bad_factorial(20):  " << bad_factorial(20) << '\n';
+    // Uncomment these (one at a time) to see what happens with missing
+    // base case and infinite recursion
+    //std::cerr << "bad_factorial_1(20): " << bad_factorial_1(20) << '\n';
+    //std::cerr << "bad_factorial_2(20): " << bad_factorial_2(20) << '\n';
 
     return 0;
 }
