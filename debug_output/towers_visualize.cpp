@@ -72,9 +72,7 @@ void move(int num, pole source, pole auxilary, pole destination, int depth) {
     std::cout << std::string(depth, '\t') << "move(" << num << ", " << source << ", " << auxilary << ", " << destination << ")\n"; 
 
     int new_depth = depth + 1;
-
     if (num == 1) {
-
         std::cout << std::string(new_depth, '\t') << "disk " << num << " from " << source << " to " << destination << '\n';
         return;
     }
@@ -87,22 +85,7 @@ void move(int num, pole source, pole auxilary, pole destination, int depth) {
 
 int main(int argc, char * argv[]) {
  
-    if(argc != 2) {
-
-        std::cout << "towers num_discs\n";
-        return ERROR_STATUS;
-
-    }
-
-    int num = 0;
-
-    for(int i = 0; argv[NUM_DISC_POS][i] != '\0'; ++i) {
-
-        num *= 10;
-        num += argv[NUM_DISC_POS][i] - '0';
-
-    }
-
+    int num = 3;
     std::cout << "To solve the towers of hanoi with " << num 
               << " disks, make the following moves.\n";
     move(num, left, middle, right, 0);
