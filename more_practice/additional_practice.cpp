@@ -10,6 +10,47 @@
 #include <vector>
 #include <cassert>
 
+/**
+ * power
+ * @param base     - base number
+ * @param exponent - exponent number
+ * 
+ * Computes base^exponent. Exponent is non-negative
+ * You must use recursion.  You may NOT use a loop.
+ * 
+ * @returns base^exponent
+ * 
+ */
+int power(int base, int exponent) {
+    if(exponent == 0) return 1;
+    return base * power(base, exponent - 1);
+}
+
+/**
+ * tri_fibonacci
+ * @param num - nth tri fibonacci number
+ * 
+ * Computes the tri fibonacci number.  A tri fibonacci number is
+ * F0 = 0
+ * F1 = 1
+ * F2 = 1
+ * Fn = Fn-1 + Fn-2 + Fn-3
+ * You must use recursion.  You may NOT use a loop.
+ * 
+ * @returns base^exponent
+ * 
+ */
+int tri_fibonacci(int num) {
+    if(num == 0) return  0;
+    if(num == 1) return  1;
+    if(num == 2) return  1;
+
+    return tri_fibonacci(num - 1) + tri_fibonacci(num - 2) + tri_fibonacci(num - 3);
+}
+
+
+
+
 void reverse(std::vector<int>& vector, int first_pos, int last_pos);
 
 /**
@@ -42,16 +83,19 @@ void reverse(std::vector<int>& vector, int first_pos, int last_pos) {
     reverse(vector, first_pos + 1, last_pos - 1);
 }
 
-/**
- * 
- */
-bool is_palindrome(const std::string & str) {
-    if(str.size() < 2) return true;
-    if(str.front() != str.back()) return false;
-    return is_palindrome(str.substr(1, str.size() -2 ));
-}
-
 int main(int argc, char * argv[]) {
+
+    assert(power(5, 0) == 1);
+    assert(power(7, 1) == 7);
+    assert(power(2, 10) == 1024);
+
+    assert(tri_fibonacci(0) == 0);
+    assert(tri_fibonacci(1) == 1);
+    assert(tri_fibonacci(2) == 1);
+    assert(tri_fibonacci(0) == 0);
+    assert(tri_fibonacci(1) == 1);
+    assert(tri_fibonacci(5) == 7);
+    assert(tri_fibonacci(10) == 149);
 
     {
         std::vector<int> vec = {};
