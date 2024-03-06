@@ -18,6 +18,9 @@ add_test(NAME factorial COMMAND $<TARGET_FILE:factorial>)
 add_executable(practice basics/practice.cpp)
 add_test(NAME practice COMMAND $<TARGET_FILE:practice>)
 
+add_executable(additional_practice more_practice/additional_practice.cpp)
+add_test(NAME additional_practice COMMAND $<TARGET_FILE:additional_practice>)
+
 add_executable(standard_output debug_output/standard_output.cpp)
 add_test(NAME standard_output COMMAND $<TARGET_FILE:standard_output>)
 
